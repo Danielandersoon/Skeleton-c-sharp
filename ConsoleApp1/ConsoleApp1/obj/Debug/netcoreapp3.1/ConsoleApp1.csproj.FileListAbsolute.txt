@@ -1,0 +1,11 @@
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.exe
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.deps.json
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.json
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.dev.json
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.pdb
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csprojAssemblyReference.cache
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfoInputs.cache
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfo.cs
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
+\\dsfc-fp-01\UserData\019861\Documents\GitHub\Skeleton-c-sharp\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
