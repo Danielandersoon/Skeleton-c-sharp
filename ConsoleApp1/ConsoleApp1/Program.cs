@@ -1,9 +1,7 @@
-﻿/*  
-    Skeleton Program code for the AQA A Level Paper 1 Summer 2022 examination
-    this code should be used in conjunction with the Preliminary Material
-    written by the AQA Programmer Team
-    developed in the Visual Studio Community Edition programming environment
-*/
+﻿//Skeleton Program code for the AQA A Level Paper 1 Summer 2022 examination
+//this code should be used in conjunction with the Preliminary Material
+//written by the AQA Programmer Team
+//developed in the Visual Studio Community Edition programming environment
 
 using System;
 using System.Collections.Generic;
@@ -34,7 +32,6 @@ namespace Breakthrough
         private bool GameOver;
         private Lock CurrentLock;
         private bool LockSolved;
-        private int count;
 
         public Breakthrough()
         {
@@ -48,42 +45,23 @@ namespace Breakthrough
 
         public void PlayGame()
         {
-            count = 0;
-            if (Sequence.GetNumberOfCards() != 0)
-            {
-                count++;
-            }
-            else;
             string MenuChoice;
             if (Locks.Count > 0)
             {
                 GameOver = false;
                 CurrentLock = new Lock();
-
-                //Creates instance of the game
                 SetupGame();
-                
-                //initiates game loop (Basically while not finished keep going )
                 while (!GameOver)
                 {
                     LockSolved = false;
-
-                    //while in instance of game 
                     while (!LockSolved && !GameOver)
                     {
                         Console.WriteLine();
                         Console.WriteLine("Current score: " + Score);
-
-
-                        Console.WriteLine(CurrentLock.GetLockDetails(Sequence));
-                        
-                        
-                        
+                        Console.WriteLine(CurrentLock.GetLockDetails());
                         Console.WriteLine(Sequence.GetCardDisplay());
                         Console.WriteLine(Hand.GetCardDisplay());
                         MenuChoice = GetChoice();
-
-                        //provides choice for gameplay
                         switch (MenuChoice)
                         {
                             case "D":
@@ -97,9 +75,7 @@ namespace Breakthrough
                                     string DiscardOrPlay = GetDiscardOrPlayChoice();
                                     if (DiscardOrPlay == "D")
                                     {
-                                        MoveCard(Hand, 
-                                            Discard, 
-                                            Hand.GetCardNumberAt(CardChoice - 1));
+                                        MoveCard(Hand, Discard, Hand.GetCardNumberAt(CardChoice - 1));
                                         GetCardFromDeck(CardChoice);
                                     }
                                     else if (DiscardOrPlay == "P")
@@ -113,8 +89,6 @@ namespace Breakthrough
                             ProcessLockSolved();
                         }
                     }
-                        
-                    //Redefines game over as the returned bool from the method
                     GameOver = CheckIfPlayerHasLost();
                 }
             }
@@ -124,30 +98,18 @@ namespace Breakthrough
 
         private void ProcessLockSolved()
         {
-            if (count > 20)
-            {
-                Score += 10;
-            }
-            else 
-            {
-                Score += 20;
-            }
-            count = 0;
+            Score += 10;
             Console.WriteLine("Lock has been solved.  Your score is now: " + Score);
-            //rebuilds deck by pulling from discard stack until discard stack is empty
             while (Discard.GetNumberOfCards() > 0)
             {
                 MoveCard(Discard, Deck, Discard.GetCardNumberAt(0));
             }
             Deck.Shuffle();
-
-            //defines new lock
             CurrentLock = GetRandomLock();
         }
 
         private bool CheckIfPlayerHasLost()
         {
-            //checks if Deck is empty if yes return true
             if (Deck.GetNumberOfCards() == 0)
             {
                 Console.WriteLine("You have run out of cards in your deck.  Your final score is: " + Score);
@@ -163,8 +125,6 @@ namespace Breakthrough
         {
             string Choice;
             Console.Write("Enter L to load a game from a file, anything else to play a new game:> ");
-            
-            //Provides choice to player to Load from pre defined file or start a new game
             Choice = Console.ReadLine().ToUpper();
             if (Choice == "L")
             {
@@ -175,16 +135,6 @@ namespace Breakthrough
             }
             else
             {
-                /*
-                 * CREATING NEW GAME 
-                 * 
-                 * Create instance of deck
-                 * Shuffle deck
-                 * Move 5 cards to Hand
-                 * Add difficulty cards and reshuffle 
-                 * Generate Lock
-                 */
-
                 CreateStandardDeck();
                 Deck.Shuffle();
                 for (int Count = 1; Count <= 5; Count++)
@@ -199,8 +149,6 @@ namespace Breakthrough
 
         private void PlayCardToSequence(int cardChoice)
         {
-
-            //Check if the sequence has been cleared, this indicates player has finished a sequence
             if (Sequence.GetNumberOfCards() > 0)
             {
                 if (Hand.GetCardDescriptionAt(cardChoice - 1)[0] != Sequence.GetCardDescriptionAt(Sequence.GetNumberOfCards() - 1)[0])
@@ -226,8 +174,6 @@ namespace Breakthrough
         private bool CheckIfLockChallengeMet()
         {
             string SequenceAsString = "";
-            
-            //loop for length of sequence 
             for (int Count = Sequence.GetNumberOfCards() - 1; Count >= Math.Max(0, Sequence.GetNumberOfCards() - 3); Count--)
             {
                 if (SequenceAsString.Length > 0)
@@ -247,8 +193,6 @@ namespace Breakthrough
         {
             List<string> SplitLine;
             int CardNumber;
-
-            
             if (lineFromFile.Length > 0)
             {
                 SplitLine = lineFromFile.Split(',').ToList();
@@ -543,7 +487,7 @@ namespace Breakthrough
             return ConditionAsString;
         }
 
-        public virtual string GetLockDetails(CardCollection sequence)
+        public virtual string GetLockDetails()
         {
             string LockDetails = Environment.NewLine + "CURRENT LOCK" + Environment.NewLine + "------------" + Environment.NewLine;
             foreach (var C in Challenges)
@@ -554,17 +498,7 @@ namespace Breakthrough
                 }
                 else
                 {
-                    /*List <string> condition = C.GetCondition();
-                    if(condition.Count == 3) 
-                    {
-                        int length = sequence.GetNumberOfCards() - 1;
-                        if (length > 0)
-                        {
-                            if (Condition(1) = sequence.GetCardDescriptionAt(length))
-                                LockDetails += "Partially met";
-                        }
-                    }*/
-                        LockDetails += "Not met:       ";
+                    LockDetails += "Not met:       ";
                 }
                 LockDetails += ConvertConditionToString(C.GetCondition()) + Environment.NewLine;
             }
@@ -884,4 +818,3 @@ namespace Breakthrough
         }
     }
 }
-
